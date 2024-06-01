@@ -1,0 +1,14 @@
+{
+  "name": "open-url-miniprogram",
+  "version": "1.0.0",
+  "description": "网页小助手，帮助小程序打开网页",
+  "keywords": [
+    "web",
+    "miniprogram"
+  ],
+  "author": "Crazy Urus <crazyurus@vip.qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.12.2"
+  }
+}

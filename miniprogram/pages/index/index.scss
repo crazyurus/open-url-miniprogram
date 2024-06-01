@@ -1,0 +1,33 @@
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #1f2329;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  padding: 0 96rpx;
+}
+
+.form {
+  margin-top: 40%;
+  display: flex;
+  padding: 32rpx;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  gap: 24rpx;
+}
+
+.nickname {
+  flex-shrink: 0;
+}
+
+.url-input {
+  flex-grow: 1;
+}
+
+.button {
+  margin-top: 100%;
+}

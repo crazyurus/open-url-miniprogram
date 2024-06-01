@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="form">
+    <text class="label">URL</text>
+    <input type="text" auto-focus class="url-input" placeholder="请输入网页地址" confirm-type="go" model:value="{{url}}" bind:confirm="openURL" />
+  </view>
+  <button class="button" type="primary" bind:tap="openURL">打开网页</button>
+</view>
