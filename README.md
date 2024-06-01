@@ -19,7 +19,7 @@ wx.navigateToMiniProgram({
     navigationBarBackgroundColor: "#ffffff",
     navigationBarTextStyle: "black"
   }
-})
+});
 ```
 
 其中，需要通过 `extraData` 传递参数：
@@ -37,4 +37,4 @@ wx.navigateToMiniProgram({
 
 **宣讲汇**
 
-如果你的小程序也使用了，欢迎通过 Issue 反馈
+如果你的小程序也使用了，欢迎通过 **Issue** 反馈

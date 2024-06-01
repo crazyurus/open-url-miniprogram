@@ -5,28 +5,34 @@ Page({
   onLoad(options: Record<string, string>) {
     if (options.url) {
       this.setData({
-        url: decodeURIComponent(options.url)
+        url: decodeURIComponent(options.url),
       });
     } else {
-      const response = wx.getLaunchOptionsSync();
+      const response = wx.getEnterOptionsSync();
       const { extraData } = response.referrerInfo;
-       
+
       if (extraData.title) {
         wx.setNavigationBarTitle({
           title: extraData.title,
         });
       }
 
-      if (extraData.navigationBarBackgroundColor || extraData.navigationBarTextStyle) {
+      if (
+        extraData.navigationBarBackgroundColor ||
+        extraData.navigationBarTextStyle
+      ) {
         wx.setNavigationBarColor({
-          frontColor: extraData.navigationBarTextStyle === 'blank' ? '#000000' : '#ffffff',
-          backgroundColor: extraData.navigationBarBackgroundColor || '#ffffff'
+          frontColor:
+            extraData.navigationBarTextStyle === 'blank'
+              ? '#000000'
+              : '#ffffff',
+          backgroundColor: extraData.navigationBarBackgroundColor || '#ffffff',
         });
       }
 
       if (extraData.url) {
         this.setData({
-          url: extraData.url
+          url: extraData.url,
         });
       }
     }
@@ -36,9 +42,9 @@ Page({
       success() {
         wx.showToast({
           icon: 'success',
-          title: '分享成功'
+          title: '分享成功',
         });
-      }
+      },
     };
-  }
-})
+  },
+});
