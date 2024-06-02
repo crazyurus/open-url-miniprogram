@@ -1,6 +1,6 @@
 Page({
   data: {
-    url: 'https://crazyurus.cn',
+    url: 'https://github.com/crazyurus/open-url-miniprogram/blob/master/README.md',
   },
   openURL() {
     const { url } = this.data;

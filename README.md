@@ -1,4 +1,4 @@
-# 网页小助手
+# 打开网页小助手
 
 ![预览](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/preview.yml/badge.svg)
 ![上传](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/upload.yml/badge.svg)

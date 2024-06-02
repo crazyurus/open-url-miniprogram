@@ -1,7 +1,7 @@
 {
   "name": "open-url-miniprogram",
   "version": "1.0.0",
-  "description": "网页小助手，帮助小程序打开网页",
+  "description": "打开网页小助手，帮助小程序打开网页",
   "keywords": [
     "web",
     "miniprogram"
