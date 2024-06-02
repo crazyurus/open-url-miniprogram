@@ -2,7 +2,7 @@ Page({
   data: {
     url: '',
   },
-  onLoad(options: Record<string, string>) {
+  onLoad(options) {
     if (options.url) {
       this.setData({
         url: decodeURIComponent(options.url),
@@ -37,7 +37,7 @@ Page({
       }
     }
   },
-  onShareAppMessage(): any {
+  onShareAppMessage() {
     return {
       success() {
         wx.showToast({

@@ -3,10 +3,7 @@
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "setting": {
-    "useCompilerPlugins": [
-      "typescript",
-      "sass"
-    ],
+    "useCompilerPlugins": [],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -20,7 +17,7 @@
     "packNpmRelationList": [],
     "ignoreUploadUnusedFiles": true,
     "compileHotReLoad": false,
-    "skylineRenderEnable": true,
+    "skylineRenderEnable": false,
     "uglifyFileName": true,
     "es6": true
   },

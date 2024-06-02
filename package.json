@@ -7,8 +7,5 @@
     "miniprogram"
   ],
   "author": "Crazy Urus <crazyurus@vip.qq.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "miniprogram-api-typings": "^3.12.2"
-  }
+  "license": "MIT"
 }
