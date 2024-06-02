@@ -1,6 +1,6 @@
 Page({
   data: {
-    url: '',
+    url: 'https://crazyurus.cn',
   },
   openURL() {
     const { url } = this.data;
