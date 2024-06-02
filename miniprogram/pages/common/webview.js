@@ -1,9 +1,30 @@
+const DEFAULT_BACKGROUND_COLOR = '#ededed';
+
 Page({
   data: {
     url: '',
   },
   onLoad(options) {
     if (options.url) {
+      if (options.title) {
+        wx.setNavigationBarTitle({
+          title: options.title,
+        });
+      }
+
+      if (
+        options.navigationBarBackgroundColor ||
+        options.navigationBarTextStyle
+      ) {
+        wx.setNavigationBarColor({
+          frontColor:
+            options.navigationBarTextStyle === 'blank'
+              ? '#000000'
+              : '#ffffff',
+          backgroundColor: options.navigationBarBackgroundColor || DEFAULT_BACKGROUND_COLOR,
+        });
+      }
+
       this.setData({
         url: decodeURIComponent(options.url),
       });
@@ -26,7 +47,7 @@ Page({
             extraData.navigationBarTextStyle === 'blank'
               ? '#000000'
               : '#ffffff',
-          backgroundColor: extraData.navigationBarBackgroundColor || '#ffffff',
+          backgroundColor: extraData.navigationBarBackgroundColor || DEFAULT_BACKGROUND_COLOR,
         });
       }
 

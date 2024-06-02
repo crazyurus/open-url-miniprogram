@@ -3,10 +3,7 @@
     "pages/index/index",
     "pages/common/webview"
   ],
-  "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black"
-  },
+  "window": {},
   "style": "v2",
   "componentFramework": "glass-easel"
 }

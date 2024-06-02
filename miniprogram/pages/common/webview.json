@@ -1,3 +1,5 @@
 {
-  "homeButton": false
+  "homeButton": false,
+  "navigationBarBackgroundColor": "#ededed",
+  "navigationBarTextStyle": "black"
 }
