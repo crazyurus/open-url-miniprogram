@@ -3,6 +3,8 @@
 ![预览](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/preview.yml/badge.svg)
 ![上传](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/upload.yml/badge.svg)
 
+> 该功能已失效
+
 该微信小程序可帮助其它小程序打开网页，无需配置业务域名。也可用于配置微信公众号的自定义菜单外链。
 
 ## 在小程序中使用
