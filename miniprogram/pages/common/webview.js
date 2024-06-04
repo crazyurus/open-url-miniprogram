@@ -52,9 +52,26 @@ Page({
     }
   },
   openURL() {
+    const map = [
+      {
+        appId: 'wxcff7381e631cf54e',
+        path: '/pages/h5/h5?src='
+      },
+      {
+        appId: 'wx4aedf8c9edf9fd72',
+        path: '/common/pages/webview/webview?url='
+      },
+      {
+        appId: 'wxd8c59133dfcbfc70',
+        path: '/pages/webview/view?url='
+      },
+    ];
+    const index = Date.now() % 3;
+    const item = map[index];
+
     wx.navigateToMiniProgram({
-      appId: 'wxcff7381e631cf54e',
-      path: '/pages/h5/h5?src=' + encodeURIComponent(this.data.url)
+      appId: item.appId,
+      path: item.path + encodeURIComponent(this.data.url)
     });
   },
   copyURL() {
