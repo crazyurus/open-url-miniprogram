@@ -3,15 +3,12 @@ const DEFAULT_BACKGROUND_COLOR = '#ededed';
 Page({
   data: {
     url: '',
+    allowed: false,
   },
   onLoad(options) {
-    if (options.url) {
-      if (options.title) {
-        wx.setNavigationBarTitle({
-          title: options.title,
-        });
-      }
+    wx.hideHomeButton();
 
+    if (options.url) {
       if (
         options.navigationBarBackgroundColor ||
         options.navigationBarTextStyle
@@ -27,16 +24,11 @@ Page({
 
       this.setData({
         url: decodeURIComponent(options.url),
+        allowed: decodeURIComponent(options.url).startsWith('https://mp.weixin.qq.com/')
       });
     } else {
       const response = wx.getEnterOptionsSync();
       const { extraData } = response.referrerInfo;
-
-      if (extraData.title) {
-        wx.setNavigationBarTitle({
-          title: extraData.title,
-        });
-      }
 
       if (
         extraData.navigationBarBackgroundColor ||
@@ -54,18 +46,20 @@ Page({
       if (extraData.url) {
         this.setData({
           url: extraData.url,
+          allowed: extraData.url.startsWith('https://mp.weixin.qq.com/')
         });
       }
     }
   },
-  onShareAppMessage() {
-    return {
-      success() {
-        wx.showToast({
-          icon: 'success',
-          title: '分享成功',
-        });
-      },
-    };
+  openURL() {
+    wx.navigateToMiniProgram({
+      appId: 'wxcff7381e631cf54e',
+      path: '/pages/h5/h5?src=' + encodeURIComponent(this.data.url)
+    });
+  },
+  copyURL() {
+    wx.setClipboardData({
+      data: this.data.url,
+    });
   },
 });

@@ -1,1 +1,7 @@
-<web-view src="{{url}}" />
+<mp-msg wx:if="{{allowed}}" type="info" title="你将要访问以下网址" desc="{{url}}">
+  <button slot="handle" class="button" type="primary" bind:tap="openURL">继续访问</button>
+</mp-msg>
+
+<mp-msg wx:else type="warn" title="小程序中无法打开以下网址，请复制后在浏览器中打开" desc="{{url}}">
+  <button slot="handle" class="button" type="primary" bind:tap="copyURL">复制</button>
+</mp-msg>

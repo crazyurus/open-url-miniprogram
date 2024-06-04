@@ -3,9 +3,9 @@
 ![预览](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/preview.yml/badge.svg)
 ![上传](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/upload.yml/badge.svg)
 
-> 该功能已失效
-
 该微信小程序可帮助其它小程序打开网页，无需配置业务域名。也可用于配置微信公众号的自定义菜单外链。
+
+> 暂仅支持打开 mp.weixin.qq.com 域名下的网页
 
 ## 在小程序中使用
 
@@ -16,8 +16,7 @@ wx.navigateToMiniProgram({
   appId: 'wx282fc9c4183b714c',
   path: '/pages/common/webview',
   extraData: {
-    url: 'https://crazyurus.cn',
-    title: ' Crazy Urus 个人主页',
+    url: 'https://mp.weixin.qq.com',
     navigationBarBackgroundColor: "#ededed",
     navigationBarTextStyle: "black"
   }

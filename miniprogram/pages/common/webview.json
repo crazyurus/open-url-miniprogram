@@ -1,5 +1,7 @@
 {
-  "homeButton": false,
   "navigationBarBackgroundColor": "#ededed",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
 }
