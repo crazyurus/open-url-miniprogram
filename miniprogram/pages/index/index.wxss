@@ -12,12 +12,16 @@ page {
 }
 
 .form {
-  margin-top: 40%;
   display: flex;
   padding: 32rpx;
   border-top: .5px solid rgba(0, 0, 0, 0.1);
   border-bottom: .5px solid rgba(0, 0, 0, 0.1);
   gap: 24rpx;
+}
+
+.form:first-child {
+  margin-top: 40%;
+  border-bottom: none;
 }
 
 .nickname {
@@ -29,5 +33,15 @@ page {
 }
 
 .button {
-  margin-top: 100%;
+  margin-top: 75%;
+}
+
+.button-after {
+  margin-top: 12px;
+}
+
+.link {
+  margin-top: 8px;
+  color: #576b95;
+  font-size: 14px;
 }

@@ -1,7 +1,12 @@
-<mp-msg wx:if="{{allowed}}" type="info" title="你将要访问以下网址" desc="{{url}}">
-  <button slot="handle" class="button" type="primary" bind:tap="openURL">继续访问</button>
+<web-view wx:if="{{email}}" src="mailto:{{email}}"></web-view>
+
+<mp-msg wx:elif="{{allowed}}" type="info" title="你将要访问以下网址" desc="{{url}}">
+  <view slot="handle">
+    <button class="button" type="primary" bind:tap="openURL">继续访问</button>
+    <button class="button button-after" bind:tap="back">返回</button>
+  </view>
 </mp-msg>
 
-<mp-msg wx:else type="warn" title="小程序中无法打开以下网址，请复制后在浏览器中打开" desc="{{url}}">
+<mp-msg wx:else type="info" title="小程序中无法打开以下网址，请复制后在浏览器中打开" desc="{{url}}">
   <button slot="handle" class="button" type="primary" bind:tap="copyURL">复制</button>
 </mp-msg>

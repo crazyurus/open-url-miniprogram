@@ -1,12 +1,29 @@
 const DEFAULT_BACKGROUND_COLOR = '#ededed';
 
+function isAllowURL(url) {
+  const hostname = url.split('/', 3);
+  const whiteList = [
+    'developers.weixin.qq.com',
+    'mp.weixin.qq.com'
+  ];
+
+  return hostname.length === 3 && whiteList.includes(hostname[2]);
+}
+
 Page({
   data: {
     url: '',
+    email: '',
     allowed: false,
   },
   onLoad(options) {
     wx.hideHomeButton();
+
+    if (options.email) {
+      this.setData({
+        email: options.email,
+      });
+    }
 
     if (options.url) {
       if (
@@ -24,7 +41,7 @@ Page({
 
       this.setData({
         url: decodeURIComponent(options.url),
-        allowed: decodeURIComponent(options.url).startsWith('https://mp.weixin.qq.com/')
+        allowed: isAllowURL(decodeURIComponent(options.url)),
       });
     } else {
       const response = wx.getEnterOptionsSync();
@@ -43,35 +60,24 @@ Page({
         });
       }
 
+      if (extraData.email) {
+        this.setData({
+          email: extraData.email,
+        });
+      }
+
       if (extraData.url) {
         this.setData({
           url: extraData.url,
-          allowed: extraData.url.startsWith('https://mp.weixin.qq.com/')
+          allowed: isAllowURL(extraData.url)
         });
       }
     }
   },
   openURL() {
-    const map = [
-      {
-        appId: 'wxcff7381e631cf54e',
-        path: '/pages/h5/h5?src='
-      },
-      {
-        appId: 'wx4aedf8c9edf9fd72',
-        path: '/common/pages/webview/webview?url='
-      },
-      {
-        appId: 'wxd8c59133dfcbfc70',
-        path: '/pages/webview/view?url='
-      },
-    ];
-    const index = Date.now() % 3;
-    const item = map[index];
-
     wx.navigateToMiniProgram({
-      appId: item.appId,
-      path: item.path + encodeURIComponent(this.data.url)
+      appId: 'wxcff7381e631cf54e',
+      path: '/pages/h5/h5?src=' + encodeURIComponent(this.data.url)
     });
   },
   copyURL() {
@@ -79,4 +85,8 @@ Page({
       data: this.data.url,
     });
   },
+  back() {
+    wx.navigateBackMiniProgram();
+    wx.navigateBack();
+  }
 });

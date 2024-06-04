@@ -3,9 +3,12 @@
     "pages/index/index",
     "pages/common/webview"
   ],
-  "window": {},
+  "window": {
+    "backgroundColor": "#ffffff"
+  },
   "style": "v2",
   "useExtendedLib": {
     "weui": true
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }
