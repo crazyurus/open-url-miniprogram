@@ -1,7 +1,17 @@
 Page({
   data: {
-    email: '',
-    url: 'https://github.com/crazyurus/open-url-miniprogram/blob/master/README.md',
+    types: ['电子邮箱', '网页'],
+    type: 0,
+    email: 'crazyurus@vip.qq.com',
+    url: 'https://developers.weixin.qq.com/',
+
+  },
+  onTypeChange(e) {
+    const { value } = e.detail;
+
+    this.setData({
+      type: Number(value),
+    });
   },
   openEmail() {
     const { email } = this.data;
@@ -39,6 +49,11 @@ Page({
           url: response.result
         });
       }
+    });
+  },
+  help() {
+    wx.navigateTo({
+      url: '/pages/common/webview?url=https://github.com/crazyurus/open-url-miniprogram/blob/master/README.md',
     });
   }
 });

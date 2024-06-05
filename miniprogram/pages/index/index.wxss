@@ -1,47 +1,11 @@
 page {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #1f2329;
 }
 
-.container {
-  position: relative;
-  height: 100%;
-  padding: 0 96rpx;
+.weui-cell_select .weui-label {
+  margin-left: 16px;
 }
 
-.form {
-  display: flex;
-  padding: 32rpx;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  gap: 24rpx;
-}
-
-.form:first-child {
-  margin-top: 40%;
-  border-bottom: none;
-}
-
-.nickname {
-  flex-shrink: 0;
-}
-
-.url-input {
-  flex-grow: 1;
-}
-
-.button {
-  margin-top: 75%;
-}
-
-.button-after {
-  margin-top: 12px;
-}
-
-.link {
-  margin-top: 8px;
-  color: #576b95;
-  font-size: 14px;
+.weui-cell_select .weui-select {
+  padding-left: 0;
 }
