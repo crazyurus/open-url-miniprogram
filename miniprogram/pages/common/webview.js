@@ -1,27 +1,32 @@
 const DEFAULT_BACKGROUND_COLOR = '#ededed';
 
-function isAllowURL(url) {
-  const hostname = url.split('/', 3);
-  const whiteList = [
-    'developers.weixin.qq.com',
-    'mp.weixin.qq.com'
-  ];
-
-  return hostname.length === 3 && whiteList.includes(hostname[2]);
-}
 
 Page({
   data: {
     url: '',
-    email: '',
-    allowed: false,
+    title: '',
+    confirmed: false,
+    error: false,
   },
   onLoad(options) {
     wx.hideHomeButton();
 
+    if (options.skip) {
+      this.setData({
+        confirmed: true
+      });
+    }
+
     if (options.email) {
       this.setData({
-        email: options.email,
+        confirmed: true,
+        url: 'mailto:' + options.email,
+      });
+    }
+
+    if (options.title) {
+      this.setData({
+        title: options.title,
       });
     }
 
@@ -41,11 +46,16 @@ Page({
 
       this.setData({
         url: decodeURIComponent(options.url),
-        allowed: isAllowURL(decodeURIComponent(options.url)),
       });
     } else {
       const response = wx.getEnterOptionsSync();
       const { extraData } = response.referrerInfo;
+
+      if (extraData.title) {
+        this.setData({
+          title: extraData.title,
+        });
+      }
 
       if (
         extraData.navigationBarBackgroundColor ||
@@ -62,22 +72,21 @@ Page({
 
       if (extraData.email) {
         this.setData({
-          email: extraData.email,
+          confirmed: true,
+          url: 'mailto:' + extraData.email,
         });
       }
 
       if (extraData.url) {
         this.setData({
           url: extraData.url,
-          allowed: isAllowURL(extraData.url)
         });
       }
     }
   },
   openURL() {
-    wx.navigateToMiniProgram({
-      appId: 'wxcff7381e631cf54e',
-      path: '/pages/h5/h5?src=' + encodeURIComponent(this.data.url)
+    this.setData({
+      confirmed: true,
     });
   },
   copyURL() {
@@ -88,5 +97,27 @@ Page({
   back() {
     wx.navigateBackMiniProgram();
     wx.navigateBack();
-  }
+  },
+  setTitle() {
+    if (this.data.title) {
+      wx.setNavigationBarTitle({
+        title: this.data.title,
+      });
+    }
+  },
+  loadError() {
+    this.setData({
+      error: true,
+    });
+  },
+  onShareAppMessage() {
+    return {
+      success() {
+        wx.showToast({
+          icon: 'success',
+          title: '分享成功',
+        });
+      },
+    };
+  },
 });

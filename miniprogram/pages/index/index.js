@@ -3,8 +3,8 @@ Page({
     types: ['电子邮箱', '网页'],
     type: 0,
     email: 'crazyurus@vip.qq.com',
-    url: 'https://developers.weixin.qq.com/',
-
+    url: 'https://crazyurus.cn/',
+    title: '',
   },
   onTypeChange(e) {
     const { value } = e.detail;
@@ -28,11 +28,11 @@ Page({
     }
   },
   openURL() {
-    const { url } = this.data;
+    const { url, title } = this.data;
 
     if (url) {
       wx.navigateTo({
-        url: '/pages/common/webview?url=' + encodeURIComponent(url),
+        url: '/pages/common/webview?url=' + encodeURIComponent(url) + '&title=' + title,
       });
     } else {
       wx.showToast({
@@ -53,7 +53,7 @@ Page({
   },
   help() {
     wx.navigateTo({
-      url: '/pages/common/webview?url=https://github.com/crazyurus/open-url-miniprogram/blob/master/README.md',
+      url: '/pages/common/webview?url=https://github.com/crazyurus/open-url-miniprogram/blob/master/README.md&skip=true',
     });
   }
 });

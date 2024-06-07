@@ -9,10 +9,15 @@
       <mp-cell wx:if="{{type === 0}}" prop="name" title="电子邮箱">
         <input type="text" class="weui-input" placeholder="请输入电子邮箱" model:value="{{email}}" confirm-type="go" bind:confirm="openEmail" />
       </mp-cell>
-      <mp-cell wx:else prop="url" title="网址" ext-class="weui-cell_vcode">
-        <input type="text" class="weui-input" placeholder="请输入网页地址" model:value="{{url}}" confirm-type="go" bind:confirm="openURL" />
-        <button slot="footer" type="default" class="weui-vcode-btn" bind:tap="scan">扫描二维码</button>
-      </mp-cell>
+      <block wx:else>
+        <mp-cell prop="title" title="标题">
+          <input type="text" class="weui-input" placeholder="请输入网页标题（选填）" model:value="{{title}}" />
+        </mp-cell>
+        <mp-cell prop="url" title="网址" ext-class="weui-cell_vcode">
+          <input type="text" class="weui-input" placeholder="请输入网页地址" model:value="{{url}}" confirm-type="go" bind:confirm="openURL" />
+          <button slot="footer" type="default" class="weui-vcode-btn" bind:tap="scan">扫描二维码</button>
+        </mp-cell>
+      </block>
     </mp-cells>
   </mp-form>
 

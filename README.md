@@ -8,8 +8,6 @@
 2. 可用于配置微信公众号的自定义菜单链接，不受文章归属的限制
 3. 可用于小程序内唤起发送邮件组件
 
-> 暂仅支持打开 mp.weixin.qq.com 域名下的网页
-
 ## 在小程序中使用
 
 在你的小程序中添加以下代码：
@@ -32,6 +30,7 @@ wx.navigateToMiniProgram({
 |:----:|:----:|:-----:|:----|
 | url | string | 是 | 需要打开的网页 URL |
 | email | string | 否 | 需要发送邮件的邮箱地址 |
+| title | string | 否 | 指定网页的标题，默认使用网页本身的标题 |
 | navigationBarBackgroundColor | string | 否 | 指定导航栏背景颜色，需要使用十六进制颜色表示，默认值 `#ededed` |
 | navigationBarTextStyle | string | 否 | 指定导航栏文字颜色，仅支持 `black` 或 `white`，默认值 `black` |
 
