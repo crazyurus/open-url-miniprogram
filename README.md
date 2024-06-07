@@ -4,9 +4,9 @@
 ![上传](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/upload.yml/badge.svg)
 
 该微信小程序有以下几个功能：
-1. 帮助其它小程序打开网页，无需配置业务域名
-2. 可用于配置微信公众号的自定义菜单链接，不受文章归属的限制
-3. 可用于小程序内唤起发送邮件组件
+1. 帮助其它小程序打开网页
+2. 可用于配置微信公众号的自定义菜单链接
+3. 可用于小程序内唤起发送邮件组件（mailto）
 
 ## 在小程序中使用
 
@@ -17,7 +17,7 @@ wx.navigateToMiniProgram({
   appId: 'wx282fc9c4183b714c',
   path: '/pages/common/webview',
   extraData: {
-    url: 'https://mp.weixin.qq.com',
+    url: 'https://mp.weixin.qq.com/',
     navigationBarBackgroundColor: "#ededed",
     navigationBarTextStyle: "black"
   }
