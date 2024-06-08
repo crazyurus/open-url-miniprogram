@@ -6,7 +6,7 @@
           <view class="weui-select">{{types[type]}}</view>
         </picker>
       </mp-cell>
-      <mp-cell wx:if="{{type === 0}}" prop="name" title="电子邮箱">
+      <mp-cell wx:if="{{type === 1}}" prop="name" title="电子邮箱">
         <input type="text" class="weui-input" placeholder="请输入电子邮箱" model:value="{{email}}" confirm-type="go" bind:confirm="openEmail" />
       </mp-cell>
       <block wx:else>
@@ -22,7 +22,7 @@
   </mp-form>
 
   <view slot="button">
-    <button wx:if="{{type === 0}}" type="primary" bind:tap="openEmail">发送邮件</button>
+    <button wx:if="{{type === 1}}" type="primary" bind:tap="openEmail">发送邮件</button>
     <button wx:else class="button" class="button" type="primary" bind:tap="openURL">打开网页</button>
   </view>
 

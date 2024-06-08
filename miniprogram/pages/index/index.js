@@ -1,6 +1,6 @@
 Page({
   data: {
-    types: ['电子邮箱', '网页'],
+    types: ['网页', '电子邮箱'],
     type: 0,
     email: 'crazyurus@vip.qq.com',
     url: 'https://crazyurus.cn/',
