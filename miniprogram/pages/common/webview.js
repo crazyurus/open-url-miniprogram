@@ -110,8 +110,9 @@ Page({
       error: true,
     });
   },
-  onShareAppMessage() {
+  onShareAppMessage(options) {
     return {
+      path: '/pages/common/webview?url=' + encodeURIComponent(options.webViewUrl),
       success() {
         wx.showToast({
           icon: 'success',
