@@ -1,5 +1,14 @@
 const DEFAULT_BACKGROUND_COLOR = '#ededed';
 
+function isAllowURL(url) {
+  const hostname = url.split('/', 3);
+  const whiteList = [
+    'developers.weixin.qq.com',
+    'mp.weixin.qq.com'
+  ];
+
+  return hostname.length === 3 && whiteList.includes(hostname[2]);
+}
 
 Page({
   data: {
@@ -85,9 +94,18 @@ Page({
     }
   },
   openURL() {
-    this.setData({
-      confirmed: true,
-    });
+    const { url } = this.data;
+
+    if (isAllowURL(url)) {
+      wx.navigateToMiniProgram({
+        appId: 'wxcff7381e631cf54e',
+        path: '/pages/h5/h5?src=' + encodeURIComponent(this.data.url)
+      });
+    } else {
+      this.setData({
+        confirmed: true,
+      });
+    }
   },
   copyURL() {
     wx.setClipboardData({

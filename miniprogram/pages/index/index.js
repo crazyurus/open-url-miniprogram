@@ -3,7 +3,7 @@ Page({
     types: ['网页', '电子邮箱'],
     type: 0,
     email: 'crazyurus@vip.qq.com',
-    url: 'https://crazyurus.cn/',
+    url: 'https://developers.weixin.qq.com/',
     title: '',
   },
   onTypeChange(e) {
