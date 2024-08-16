@@ -4,7 +4,9 @@
 ![上传](https://github.com/crazyurus/open-url-miniprogram/actions/workflows/upload.yml/badge.svg)
 
 该微信小程序有以下几个功能：
-1. 帮助其它小程序打开网页
+1. 帮助其它小程序打开网页。支持以下域名：
+- mp.weixin.qq.com
+- developers.weixin.qq.com
 2. 可用于配置微信公众号的自定义菜单链接
 3. 可用于小程序内唤起发送邮件组件（mailto）
 
